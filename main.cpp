@@ -10,7 +10,8 @@ int main() {
     float x,y;
     while(active)
     {
-        std::cout << "What would you like to do today: \n [A] Addition\n [S] Subtraction\n [M] Multiplication\n [D] Division \n [E] Exit\n";
+        std::cout << "What would you like to do today: \n_______________________________________\n [A] Addition\n [S] Subtraction\n "
+                     "[M] Multiplication\n [D] Division \n [Q] Square\n [E] Exit\n";
         std::cin >> input;
         switch(input){
             case 'A':
@@ -70,6 +71,16 @@ int main() {
                 std::cout <<"\nResult: " << calculator.division(x,y) << "\n-------------------\n";
                 break;
 
+            case 'Q':
+                while(std::cout << "Number to Square: " && !(std::cin >> x))
+                {
+                    std::cin.clear();
+                    std::cin.ignore(1000, '\n');
+                }
+                std::cout << "\nResult: " << calculator.square(x) << "\n-------------------\n";
+                break;
+
+
             case 'E':
                 active = false;
                 break;
@@ -78,10 +89,7 @@ int main() {
                 std::cout << "Please Enter One of the Following Choices\n";
         }
     }
-//    std::cout << calculator.addition(2,2.0)<< std::endl;
-//    std::cout << calculator.subtraction(2,1.5)<< std::endl;
-//    std::cout << calculator.multiplication(2,3.5)<< std::endl;
-//    std::cout << calculator.division(2.0,3.0)<< std::endl;
+
 
     return 0;
 }
